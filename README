@@ -1,3 +1,30 @@
-== retry-handler
+= retry-handler
+easy retry handling 
 
-A gem that provides...
+== What is this
+このライブラリは失敗した時にN回リトライするという処理を簡単に記述することが出来るモジュールです。
+ Proc.new{
+   # なんかエラーの起こるコード
+ }.retry(:max => 3, :accept_exception => StandardError)
+
+とか書いておくとなんかProc内で例外(この場合はStandardErrorなので、ほとんどの例外が対象)が発生した時最大3回まで、
+Procのコードをリトライしてくれるというのが簡単にかける。
+
+また:waitというオプションがあり、これ指定するとエラーがあったとき、3秒間waitのあと、次の試行してくれるようになる。
+retry-handler自体の処理の流れを可視化したいときは:loggerオプションを付加すると良い。
+ lambda{}.retry(:max => 3, :wait => 3)
+ lambda{}.retry(:max => 3, :wait => 3, :logger => Logger.new(STDERR)
+
+ちなみにProc.newと書くのがダサいときは、lambdaでもbegin-endでも使える
+ lambda{}.retry(:max => 3)
+ 
+ begin
+ end.retry(:max => 3)
+
+== How to Install
+Works on Ruby1.8/1.9
+ gem install retry-handler
+
+== Author
+lurker(kimoto)
+
