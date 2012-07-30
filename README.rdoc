@@ -21,6 +21,10 @@ retry-handler自体の処理の流れを可視化したいときは:loggerオプ
  begin
  end.retry(:max => 3)
 
+== Method#retryの使い方
+たとえばFile.readをretryableにするコード例です
+  File.method(:read).retry("./not_found.txt", :accept_exception => Exception, :logger => Logger.new(STDERR))
+
 == How to Install
 Works on Ruby1.8/1.9
  gem install retry-handler

@@ -1,0 +1,8 @@
+v0.2
+  Added Method#retry
+    example:
+      File.method(:read).retry("./not_found.txt", :accept_exception => StandardError, :logger => Logger.new(STDERR))
+
+v0.1 (= v0.01)
+  First Release
+

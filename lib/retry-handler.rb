@@ -54,6 +54,15 @@ class Proc
   end
 end
 
+class Method
+  def retry(*args)
+    options = args.last.is_a?(::Hash) ? args.pop : {}
+    RetryHandler.retry_handler(options) do
+      self.call(*args)
+    end
+  end
+end
+
 module Kernel
   def retry_handler(options={}, &block)
     block.retry(options) if block_given?
