@@ -1,4 +1,3 @@
-require 'timeout'
 require 'logger'
 
 class RetryError < StandardError; end
