@@ -1,0 +1,135 @@
+# This file overrides https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+inherit_mode:
+  merge:
+    - Include
+
+AllCops:
+  Include:
+    - Rakefile
+    - Gemfile
+    - config.ru
+    - lib/tasks/*.rake
+  Exclude:
+    - coverage/**/*
+    - vendor/**/*
+    - log/**/*
+    - tmp/**/*
+    - db/**/*
+  TargetRubyVersion: 2.3
+
+Metrics/AbcSize:
+  # The ABC size is a calculated magnitude, so this number can be an Integer or
+  # a Float.
+  Max: 150
+
+Metrics/BlockLength:
+  CountComments: false  # count full line comments?
+  Max: 600
+
+Metrics/PerceivedComplexity:
+  Max: 20
+
+Metrics/CyclomaticComplexity:
+  Max: 20
+
+# Limit lines to 80 characters.
+Layout/LineLength:
+  Enabled: false
+
+# Avoid methods longer than 10 lines of code
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Style/GlobalVars:
+  AllowedVariables: []
+
+# Favor modifier if/unless usage when you have a single-line body.
+Style/IfUnlessModifier:
+  Enabled: false
+
+# Favor modifier while/until usage when you have a single-line body.
+Style/WhileUntilModifier:
+  Enabled: false
+
+# Preferred collection methods.
+Style/CollectionMethods:
+  Enabled: false
+
+# Don't interpolate global, instance and class variables directly in strings.
+Style/VariableInterpolation:
+  Enabled: false
+
+# Use only ascii symbols in comments.
+Style/AsciiComments:
+  Enabled: false
+
+Style/CaseEquality:
+  Description: 'Avoid explicit use of the case equality operator(===).'
+  Enabled: false
+
+Style/SignalException:
+  Description: 'Checks for proper usage of fail and raise.'
+  Enabled: false
+
+Style/SymbolArray:
+  Description: 'Use %i or %I for arrays of symbols.'
+  Enabled: true
+
+Style/Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
+
+Style/TrivialAccessors:
+  Enabled: false
+
+# 本来はtrueにしたいが変更範囲が大きすぎるため、一時的にfalse
+Layout/AccessModifierIndentation:
+  Enabled: false
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Description: 'Enforces the names of some block params.'
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Naming/FileName:
+  Enabled: false
+
+Layout/ArrayAlignment:
+  Enabled: false
+
+Layout/HashAlignment:
+  Enabled: false
+
+# 一時的に封鎖
+Naming/AccessorMethodName:
+  Enabled: false
+
+# bear-api-controllerのみ以下を封鎖
+Style/GuardClause:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+    Enabled: false
+
+Style/HashSyntax:
+    Enabled: false
+
+Style/SafeNavigation:
+    Enabled: false
+
+Style/NumericPredicate:
+    Enabled: false
