@@ -47,7 +47,7 @@ Metrics/ClassLength:
   Enabled: false
 
 Style/GlobalVars:
-  AllowedVariables: []
+  AllowedVariables: [$TESTING]
 
 # Favor modifier if/unless usage when you have a single-line body.
 Style/IfUnlessModifier:

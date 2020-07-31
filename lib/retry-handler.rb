@@ -22,8 +22,6 @@ module RetryHandler
     end
   end
 
-  private
-
   def self._retry_handler(max_retry, wait_time, accept_exception, logger, &block)
     retry_cnt = 0
 
@@ -44,6 +42,8 @@ module RetryHandler
       end
     end
   end
+
+  private_class_method :_retry_handler
 end
 
 class Proc
