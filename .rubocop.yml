@@ -15,7 +15,7 @@ AllCops:
     - log/**/*
     - tmp/**/*
     - db/**/*
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
 
 Metrics/AbcSize:
   # The ABC size is a calculated magnitude, so this number can be an Integer or
